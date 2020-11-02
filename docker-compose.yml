@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+   mcuexpresso-dev:
+    build:
+      context: ./
+      args:
+       USERNAME: nxp
+       UID: 1000
+       GID: 1000
+    privileged: true
+    stdin_open: true
+    tty: true
+    environment:
+      - DISPLAY=unix:1
+    volumes:
+      - ./:/mnt
+      # dbus
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/machine-id:/var/lib/dbus/machine-id
+      - /var/run/dbus:/var/run/dbus
+      # X11 Forwarding
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    image: mcuexpresso-dev:latest
+    container_name:  mcuexpresso-dev
