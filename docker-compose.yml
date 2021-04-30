@@ -4,9 +4,9 @@ services:
     build:
       context: ./
       args:
-       USERNAME: nxp
-       UID: 1000
-       GID: 1000
+       USERNAME: root
+       UID: 0
+       GID: 0
     privileged: true
     stdin_open: true
     tty: true
