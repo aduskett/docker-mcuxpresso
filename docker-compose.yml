@@ -4,6 +4,8 @@ services:
     build:
       context: ./
       args:
+       # Customize your IDE version here
+       IDE_VERSION: 11.3.1_5262
        USERNAME: root
        UID: 0
        GID: 0
