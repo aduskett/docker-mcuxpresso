@@ -14,7 +14,7 @@ RUN set -e; \
   dnf update -y; \
   dnf install -y epel-release; \
   dnf install -y dnf-plugins-core; \
-  dnf config-manager --set-enabled PowerTools; \
+  dnf config-manager --set-enabled powertools; \
   dnf install -y \
   diffutils \
   dpkg \
