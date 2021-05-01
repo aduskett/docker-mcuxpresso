@@ -14,7 +14,7 @@ RUN set -e; \
   dnf update -y; \
   dnf install -y epel-release; \
   dnf install -y dnf-plugins-core; \
-  dnf config-manager --set-enabled PowerTools; \
+  dnf config-manager --set-enabled powertools; \
   dnf install -y \
   diffutils \
   dpkg \
@@ -31,9 +31,8 @@ RUN set -e; \
   wget http://rpmfind.net/linux/fedora/linux/releases/33/Everything/x86_64/os/Packages/d/dfu-util-0.9-10.fc33.x86_64.rpm -O /tmp/dfu.rpm; \
   dnf install -y /tmp/dfu.rpm; \
   rm -f /tmp/dfcu.rpm; \
-  groupadd -r -g ${GID} ${USERNAME}; \
-  useradd -ms /bin/bash -u ${UID} -g ${GID} ${USERNAME}; \
   usermod -aG wheel ${USERNAME}; \
+  mkdir -p /home/${USERNAME} ; \
   echo "alias ls='ls --color=auto'" >> /home/${USERNAME}/.bashrc; \
   echo "PS1='\u@\H [\w]$ '" >> /home/${USERNAME}/.bashrc; \
   chown -R ${USERNAME}:${USERNAME} /home/${USERNAME};

@@ -4,9 +4,11 @@ services:
     build:
       context: ./
       args:
-       USERNAME: nxp
-       UID: 1000
-       GID: 1000
+       # Customize your IDE version here
+       IDE_VERSION: 11.3.1_5262
+       USERNAME: root
+       UID: 0
+       GID: 0
     privileged: true
     stdin_open: true
     tty: true
