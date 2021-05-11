@@ -31,6 +31,7 @@ RUN set -e; \
   wget http://rpmfind.net/linux/fedora/linux/releases/33/Everything/x86_64/os/Packages/d/dfu-util-0.9-10.fc33.x86_64.rpm -O /tmp/dfu.rpm; \
   dnf install -y /tmp/dfu.rpm; \
   rm -f /tmp/dfcu.rpm; \
+  useradd -ms /bin/bash -u ${UID} -g ${GID} ${USERNAME}; \
   usermod -aG wheel ${USERNAME}; \
   mkdir -p /home/${USERNAME} ; \
   echo "alias ls='ls --color=auto'" >> /home/${USERNAME}/.bashrc; \
